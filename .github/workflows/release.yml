@@ -1,0 +1,34 @@
+name: Publish STLs
+
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install OpenSCAD
+        run: |
+          sudo apt update
+          sudo apt-get install -y --no-install-recommends openscad
+        
+      - name: Build STLs for every openscad file
+        run: |
+          for file in *.scad; do
+            openscad -o "${file%.scad}.stl" "$file"
+          done
+
+      - name: Upload STLs to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: "*.stl"
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
