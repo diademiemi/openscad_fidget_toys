@@ -1,0 +1,3 @@
+[submodule "openscad_common"]
+	path = openscad_common
+	url = https://github.com/diademiemi/openscad_common.git
