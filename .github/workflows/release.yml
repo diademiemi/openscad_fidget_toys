@@ -21,6 +21,7 @@ jobs:
       - name: Build STLs for every openscad file
         run: |
           for file in *.scad; do
+            echo "Building $file to ${file%.scad}.stl"
             openscad -o "${file%.scad}.stl" "$file"
           done
 
