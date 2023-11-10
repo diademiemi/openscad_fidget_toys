@@ -115,8 +115,8 @@ difference() {
 
 
 // Sides
-translate([cube_size + cube_distance/2, 0, cube_size+0.5]) rotate([-90, 0, 0])  translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.575, 0]) connector(set_connector_size = [12.4 + cube_distance, 10.25, 6]);
-translate([cube_size + cube_distance/2, (cube_size *2) - negative_connector_size[2] + cube_distance*3, cube_size+0.5]) rotate([-90, 0, 0]) translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.575, 0]) connector(set_connector_size = [12.4 + cube_distance, 10.25, 6]);
+translate([cube_size + cube_distance/2, 0, cube_size+0.3]) rotate([-90, 0, 0])  translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.575, 0]) connector(set_connector_size = [12.4 + cube_distance, 10.6, 6]);
+translate([cube_size + cube_distance/2, (cube_size *2) - negative_connector_size[2] + cube_distance*3, cube_size+0.3]) rotate([-90, 0, 0]) translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.575, 0]) connector(set_connector_size = [12.4 + cube_distance, 10.6, 6]);
 
 // Put the connectors at the top
 translate([cube_size+0.1, 0.5, cube_size - connector_size[2]]) rotate([0, 0, 90])  translate([(cube_size * 2)/2 - connector_size[0]/2 - 0.1, (cube_size)/2 - connector_size[0]*0.565, -0.65]) connector();
@@ -128,20 +128,20 @@ translate([(cube_size*4+cube_distance*5), 0.5, cube_size - connector_size[2]]) r
 translate([36, -3.25, 0]) {
     
     cube([9.5, 3, 20]);
-    translate([0, 0, 4.8]) cube([3, 3.7, 0.7]);
-    translate([6.5, 0, 4.8]) cube([3, 3.7, 0.7]);
-    translate([0, 0, 16]) cube([3, 3.7, 0.7]);
-    translate([6.5, 0, 16]) cube([3, 3.7, 0.7]);
+    translate([0, 0, 4.3]) cube([2, 3.7, 0.7]);
+    translate([6.5, 0, 4.3]) cube([2, 3.7, 0.7]);
+    translate([0, 0, 16]) cube([2, 3.7, 0.7]);
+    translate([6.5, 0, 16]) cube([2, 3.7, 0.7]);
 
 }
 
 translate([36, 40.75, 0]) {
     
     cube([9.5, 3, 20]);
-    translate([0, -0.7, 4.8]) cube([3, 3.7, 0.7]);
-    translate([6.5, -0.7, 4.8]) cube([3, 3.7, 0.7]);
-    translate([0, -0.7, 16]) cube([3, 3.7, 0.7]);
-    translate([6.5, -0.7, 16]) cube([3, 3.7, 0.7]);
+    translate([0, -0.7, 4.3]) cube([2, 3.7, 0.7]);
+    translate([6.5, -0.7, 4.3]) cube([2, 3.7, 0.7]);
+    translate([0, -0.7, 16]) cube([2, 3.7, 0.7]);
+    translate([6.5, -0.7, 16]) cube([2, 3.7, 0.7]);
 
 }
 
