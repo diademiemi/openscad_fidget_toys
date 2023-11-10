@@ -9,14 +9,14 @@ inner_blade_points = [
 ];
 
 blade_points = [
-    [-1.3, 14], // Top of the diamond
+    [-1.2, 14], // Top of the diamond
     [0, 14.5], // Top of the diamond
-    [1.3, 14], // Top of the diamond
-    [3.5, 0], // Right corner
-    [1.3, -14], // Bottom of the diamond
+    [1.2, 14], // Top of the diamond
+    [3.25, 0], // Right corner
+    [1.2, -14], // Bottom of the diamond
     [0, -14.5], // Bottom of the diamond
-    [-1.3, -14], // Bottom of the diamond
-    [-3.5, 0]  // Left corner
+    [-1.2, -14], // Bottom of the diamond
+    [-3.25, 0]  // Left corner
 ];
 outer_blade_points  = [
     [-2.25, 15.75], // Top of the diamond
@@ -146,8 +146,8 @@ module sword_handles() {
             }
         }
 
-        scale([1.1, 1.1, 1]) linear_extrude(height=50, convexity=10, $fn=100, scale=[1.05,1.18]) offset(r=1) polygon(outer_outer_outer_blade_points);
-        scale([1.18, 1.18, 1]) translate([0, 0, 47]) linear_extrude(height=5, convexity=10, $fn=100) offset(r=1) polygon(outer_outer_outer_blade_points);
+        scale([1.09, 1.09, 1]) linear_extrude(height=50, convexity=10, $fn=100, scale=[1.05,1.18]) offset(r=1) polygon(outer_outer_outer_blade_points);
+        scale([1.16, 1.16, 1]) translate([0, 0, 47]) linear_extrude(height=5, convexity=10, $fn=100) offset(r=1) polygon(outer_outer_outer_blade_points);
 
 
     }
