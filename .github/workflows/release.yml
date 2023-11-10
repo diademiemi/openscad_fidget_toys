@@ -12,17 +12,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
-      - name: Install OpenSCAD
+      - name: Download OpenSCAD
         run: |
-          sudo apt update
-          sudo apt-get install -y --no-install-recommends openscad
+          wget https://files.openscad.org/snapshots/OpenSCAD-2023.11.08.ai16933-x86_64.AppImage -O OpenSCAD-2023.11.08.ai16933-x86_64.AppImage
+          chmod +x ./OpenSCAD-2023.11.08.ai16933-x86_64.AppImage
         
       - name: Build STLs for every openscad file
         run: |
           for file in *.scad; do
             echo "Building $file to ${file%.scad}.stl"
-            openscad -o "${file%.scad}.stl" "$file"
+            ./OpenSCAD-2023.11.08.ai16933-x86_64.AppImage --enable=fast-csg --enable=manifold --enable=lazy-union --enable=predictible-output -o "${file%.scad}.stl" "$file"
           done
 
       - name: Upload STLs to release
