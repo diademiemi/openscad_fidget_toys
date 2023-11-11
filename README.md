@@ -23,3 +23,8 @@
 <img src="./img/fidget_spiral_combined.png" title="Spiral Noisemaker" height="256" />
 <img src="./img/fidget_spiral_cap.png" title="Spiral Noisemaker End Caps" height="256" />
 </p>
+
+## Collapsible Sword
+<p float="left">
+<img src="./img/collapsible_sword.png" title="Collapsible Sword" height="256" />
+</p>
