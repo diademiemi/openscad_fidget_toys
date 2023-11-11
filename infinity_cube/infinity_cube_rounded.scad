@@ -1,4 +1,4 @@
-include <openscad_common/rounded_figures.scad>
+include <../openscad_common/rounded_figures.scad>
 
 cube_size = 20;
 
@@ -6,6 +6,9 @@ cube_distance=0.5;
 
 // connector_size = [12 + cube_distance, 10, 6];
 connector_size = [12.4 + cube_distance, 11.5, 6];
+side_connector_size = [12.4 + cube_distance, 11, 6];
+bottom_connector_size = [12.4 + cube_distance, 11.8, 6];
+top_connector_size = [12.4 + cube_distance, 11.7, 6];
 connecector_roundness = 3;
 
 radius = connector_size[2]/2;
@@ -69,12 +72,11 @@ module negative_connector(extra_width = cube_distance,flat=false, other_flat=fal
     translate([negative_connector_size[0] + extra_width - cone_radius*2, 0, 0]) cone_connector(cone_radius, cone_height);    
 
 
-
 }
 
 module cube_pair() {
-    // translate([0, 0, 0]) hulled_cube([cube_size, cube_size, cube_size], 2.5);
-    // translate([cube_size+cube_distance, 0, 0]) hulled_cube([cube_size, cube_size, cube_size], 2.5);
+    // translate([0, 0, 0]) hulled_cube([cube_size, cube_size, cube_size], 3);
+    // translate([cube_size+cube_distance, 0, 0]) hulled_cube([cube_size, cube_size, cube_size], 3);
     translate([0, 0, 0]) rounded_cube([cube_size, cube_size, cube_size], 3);
     translate([cube_size+cube_distance, 0, 0]) rounded_cube([cube_size, cube_size, cube_size], 3);
 }
@@ -88,7 +90,7 @@ module cube_pair_connected() {
             translate([(cube_size * 2)/2 - negative_connector_size[0]/2, (cube_size)/2 - negative_connector_size[0]*0.65, 0]) negative_connector(flat=true);
             
         }
-        translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.65, 0]) connector();
+        translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.65, 0]) connector(set_connector_size = bottom_connector_size);
     }
 }
 
@@ -115,12 +117,12 @@ difference() {
 
 
 // Sides
-translate([cube_size + cube_distance/2, 0, cube_size+0.3]) rotate([-90, 0, 0])  translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.575, 0]) connector(set_connector_size = [12.4 + cube_distance, 10.6, 6]);
-translate([cube_size + cube_distance/2, (cube_size *2) - negative_connector_size[2] + cube_distance*3, cube_size+0.3]) rotate([-90, 0, 0]) translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.575, 0]) connector(set_connector_size = [12.4 + cube_distance, 10.6, 6]);
+translate([cube_size + cube_distance/2, 0, cube_size+0.8]) rotate([-90, 0, 0])  translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.575, 0]) connector(set_connector_size = side_connector_size);
+translate([cube_size + cube_distance/2, (cube_size *2) - negative_connector_size[2] + cube_distance*3, cube_size+0.8]) rotate([-90, 0, 0]) translate([(cube_size * 2)/2 - connector_size[0]/2, (cube_size)/2 - connector_size[0]*0.575, 0]) connector(set_connector_size = side_connector_size);
 
 // Put the connectors at the top
-translate([cube_size+0.1, 0.5, cube_size - connector_size[2]]) rotate([0, 0, 90])  translate([(cube_size * 2)/2 - connector_size[0]/2 - 0.1, (cube_size)/2 - connector_size[0]*0.565, -0.65]) connector();
-translate([(cube_size*4+cube_distance*5), 0.5, cube_size - connector_size[2]]) rotate([0, 0, 90])   translate([(cube_size * 2)/2 - connector_size[0]/2 - 0.1, (cube_size)/2 - connector_size[0]*0.575, -0.65]) connector();
+translate([cube_size+0.15, 0.5, cube_size - connector_size[2]]) rotate([0, 0, 90])  translate([(cube_size * 2)/2 - connector_size[0]/2 - 0.1, (cube_size)/2 - connector_size[0]*0.565, -0.65]) connector(set_connector_size = top_connector_size);
+translate([(cube_size*4+cube_distance*5)+0.05, 0.5, cube_size - connector_size[2]]) rotate([0, 0, 90])   translate([(cube_size * 2)/2 - connector_size[0]/2 - 0.1, (cube_size)/2 - connector_size[0]*0.575, -0.65]) connector(set_connector_size = top_connector_size);
 
 
 

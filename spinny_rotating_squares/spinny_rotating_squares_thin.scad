@@ -1,4 +1,4 @@
-include <openscad_common/rounded_figures.scad>
+include <../openscad_common/rounded_figures.scad>
 
 height = 5;
 width = 5;

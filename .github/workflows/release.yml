@@ -27,7 +27,7 @@ jobs:
         
       - name: Build STLs for every openscad file
         run: |
-          for file in *.scad; do
+          for file in */*.scad; do
             echo "Building $file to ${file%.scad}.stl"
             ./OpenSCAD-2023.11.08.ai16933-x86_64.AppImage --enable=fast-csg --enable=manifold --enable=lazy-union --enable=predictible-output -o "${file%.scad}.stl" "$file"
           done
@@ -36,7 +36,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: "*.stl"
+          file: "*/*.stl"
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true

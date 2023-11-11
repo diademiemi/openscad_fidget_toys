@@ -8,9 +8,9 @@ inner_minimum_diameter = 25;
 rounding = 0.5;
 clearance = 0.835;
 
-fn = 192;
+fn = 150;
 round_corners = true;
-minkowski_fn = 32;
+minkowski_fn = 16;
 
 ring_widths = (outer_diameter - inner_minimum_diameter/2) / segments - clearance + rounding; 
 module spinny_toy() {
@@ -39,7 +39,7 @@ module spinny_toy() {
 
 if (round_corners) {
 
-    minkowski() {
+    minkowski($fn=minkowski_fn) {
 
         spinny_toy();
 

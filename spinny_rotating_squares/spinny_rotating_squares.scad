@@ -1,4 +1,4 @@
-include <openscad_common/rounded_figures.scad>
+include <../openscad_common/rounded_figures.scad>
 
 height = 8;
 width = 5;
@@ -83,22 +83,15 @@ module draw_square_center(size, rotate=false, final=false, outer_final=false) {
 }
 
 
-// Warning: >3 segments wont turn in all directions sometimes
+// LARGE
+// draw_square_center(size=20, final=true);
+// draw_square_center(size=31.25, rotate=true);
+// draw_square_center(size=42.5);
+// draw_square_center(size=53.75, rotate=true);
+// draw_square_center(size=65, outer_final=true);
+
+
+// SMALL
 draw_square_center(size=20, final=true);
-draw_square_center(size=31.1, rotate=true);
-draw_square_center(size=42.2);
-// draw_square_center(size=42.2, outer_final=true);
-draw_square_center(size=53.3, rotate=true);
-draw_square_center(size=64.4, outer_final=true);
-
-// size = 20;
-// translate([-size / 2 , -size / 2, 0]) spinny_square(size=20, final=true);
-
-// size = 31.1;
-// rotate([0, 0, 90]) translate([-size / 2, -size / 2, 0])  spinny_square(size=31.1);
-
-// translate([-21.7, -21.7, 0])  spinny_square(size=42.2);
-
-// rotate([0, 0, 90]) translate([-26.8, -26.8, 0])  spinny_square(size=53.3);
-
-// translate([-32.2, -32.2, 0])  spinny_square(size=64.4, outer_final=true);
+draw_square_center(size=31.25, rotate=true);
+draw_square_center(size=42.5, outer_final=true);
