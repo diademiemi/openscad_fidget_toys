@@ -11,6 +11,10 @@ if [ -z "$openscad_executable" ]; then
 fi
 
 for file in */*.scad; do
+    # Skip if filename includes "openscad_common" or "test"
+    if [[ $file == *"openscad_common"* ]] || [[ $file == *"test"* ]]; then
+        continue
+    fi
     echo "Building $file to ${file%.scad}.stl"
     $openscad_executable --enable=fast-csg --enable=manifold --enable=lazy-union --enable=predictible-output -o "${file%.scad}.stl" "$file"
 done

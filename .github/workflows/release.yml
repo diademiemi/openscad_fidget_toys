@@ -31,6 +31,9 @@ jobs:
       - name: Build STLs for every openscad file
         run: |
           for file in */*.scad; do
+            if [[ $file == *"openscad_common"* ]] || [[ $file == *"test"* ]]; then
+              continue
+            fi
             echo "Building $file to ${file%.scad}.stl"
             ./OpenSCAD-2023.11.08.ai16933-x86_64.AppImage --enable=fast-csg --enable=manifold --enable=lazy-union --enable=predictible-output -o "${file%.scad}.stl" "$file"
           done
